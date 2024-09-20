@@ -33,6 +33,7 @@ struct Args {
     no_trailing_whitespace: Toggle,
 
     /// File to lint
+    #[clap(short = 't', long, default_value = "Cargo.toml")]
     target: PathBuf,
 }
 
@@ -54,6 +55,13 @@ enum DependencySorting {
 
 fn main() -> Result<(), String> {
     let args = Args::parse();
+
+    println!("Linting {:?}", &args);
+
+    // Print the current working directory
+    let _cwd = std::env::current_dir()
+        .map_err(|err| format!("Could not get current directory: {:?}", err))?;
+    println!("Current directory: {:?}", _cwd);
 
     let contents = fs::read(&args.target)
         .map_err(|err| format!("Could not read {:?}: {:?}", &args.target, err))?;

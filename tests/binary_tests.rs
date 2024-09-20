@@ -4,6 +4,7 @@ use assert_cmd::Command;
 fn self_test() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./Cargo.toml")
         .assert();
 
@@ -14,6 +15,7 @@ fn self_test() {
 fn ok_test() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Ok-but-weird.toml")
         .arg("--no-cargo-verify")
         .assert();
@@ -22,6 +24,7 @@ fn ok_test() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Ok-but-weird.toml")
         .arg("--no-cargo-verify")
         .arg("-Dsection")
@@ -31,6 +34,7 @@ fn ok_test() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Ok-but-weird.toml")
         .arg("--no-cargo-verify")
         .arg("-Dnone")
@@ -43,6 +47,7 @@ fn ok_test() {
 fn should_pass_test() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Should-pass.toml")
         .arg("--no-cargo-verify")
         .assert();
@@ -51,6 +56,7 @@ fn should_pass_test() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Should-pass.toml")
         .arg("--no-cargo-verify")
         .arg("-Dsection")
@@ -60,6 +66,7 @@ fn should_pass_test() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Should-pass.toml")
         .arg("--no-cargo-verify")
         .arg("-Dnone")
@@ -72,6 +79,7 @@ fn should_pass_test() {
 fn unsorted_deps() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-deps.toml")
         .arg("--no-cargo-verify")
         .arg("-Dnone")
@@ -82,6 +90,7 @@ fn unsorted_deps() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-deps.toml")
         .arg("--no-cargo-verify")
         .arg("-Dsection")
@@ -94,6 +103,7 @@ fn unsorted_deps() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-deps.toml")
         .arg("--no-cargo-verify")
         .arg("-Dstrict")
@@ -109,6 +119,7 @@ fn unsorted_deps() {
 fn unsorted_deps_only_strict_fails() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-deps-strict.toml")
         .arg("--no-cargo-verify")
         .arg("-Dn")
@@ -120,6 +131,7 @@ fn unsorted_deps_only_strict_fails() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-deps-strict.toml")
         .arg("--no-cargo-verify")
         .arg("-Dsection")
@@ -131,6 +143,7 @@ fn unsorted_deps_only_strict_fails() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-deps-strict.toml")
         .arg("--no-cargo-verify")
         .arg("-Dstrict")
@@ -147,6 +160,7 @@ fn unsorted_deps_only_strict_fails() {
 fn unsorted_tests() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-tests.toml")
         .arg("--no-cargo-verify")
         .arg("-Dn")
@@ -158,6 +172,7 @@ fn unsorted_tests() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Unsorted-tests.toml")
         .arg("--no-cargo-verify")
         .arg("-Dstrict")
@@ -174,6 +189,7 @@ fn unsorted_tests() {
 fn split_test_array() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Split-test-array.toml")
         .arg("--no-cargo-verify")
         .arg("-Dn")
@@ -185,6 +201,7 @@ fn split_test_array() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Split-test-array.toml")
         .arg("--no-cargo-verify")
         .arg("-Dn")
@@ -199,6 +216,7 @@ fn split_test_array() {
 fn extra_end_of_line() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Extra-end-of-line.toml")
         .arg("--no-cargo-verify")
         .arg("-Nn")
@@ -211,6 +229,7 @@ fn extra_end_of_line() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Extra-end-of-line.toml")
         .arg("--no-cargo-verify")
         .arg("-Ny")
@@ -228,6 +247,7 @@ fn extra_end_of_line() {
 fn missing_end_of_line() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Missing-end-of-line.toml")
         .arg("--no-cargo-verify")
         .arg("-Nn")
@@ -240,6 +260,7 @@ fn missing_end_of_line() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Missing-end-of-line.toml")
         .arg("--no-cargo-verify")
         .arg("-Ny")
@@ -257,6 +278,7 @@ fn missing_end_of_line() {
 fn trailing_white_space() {
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Trailing-white-space.toml")
         .arg("--no-cargo-verify")
         .arg("-Nn")
@@ -270,6 +292,7 @@ fn trailing_white_space() {
 
     let assert = Command::cargo_bin(assert_cmd::crate_name!())
         .unwrap()
+        .arg("-t")
         .arg("./tests/Trailing-white-space.toml")
         .arg("--no-cargo-verify")
         .arg("-Ny")
