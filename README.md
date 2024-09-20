@@ -21,6 +21,20 @@ This is a best-effort linter. Currently, custom parsing is really simplified, so
 
 However, any such issues are considered bugs and a fix PR would be appreciated.
 
+## Usage
+
+This linter can be used from the command line:
+
+```bash
+cargo toml-lint
+```
+
+You can also specify a specific file with the `-t` or `--target` flag:
+
+```bash
+cargo toml-lint --target ./packages/Cargo.toml
+```
+
 ## License
 
 This project is licensed under the following licenses as per your choice.
